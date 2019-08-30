@@ -30,6 +30,23 @@ router.get('/:id', async (req, res) => {
   }
 })
 
+router.post('/', async (req, res) => {
+  const { name, grade } = req.body
+  if (!name || !grade) {
+    return res.status(400).json({
+      message: 'Please provide both `name` and `grade` properties'
+    })
+  }
+  try {
+    const student = await Students.add({ name, grade })
+    return res.status(201).json(student)
+  } catch (error) {
+    res.status(500).json({
+      error: error.message
+    })
+  }
+})
+
 router.delete('/:id', async (req, res) => {
   const { id } = req.params
   try {
