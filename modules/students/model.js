@@ -10,6 +10,12 @@ const findById = async id => {
   return student
 }
 
+const add = async student => {
+  const [id] = await db('students').insert(student)
+  const newStudent = await findById(id)
+  return newStudent
+}
+
 const remove = async id => {
   await db('students').where({ id }).del()
 }
@@ -17,5 +23,6 @@ const remove = async id => {
 module.exports = {
   find,
   findById,
+  add,
   remove,
 }
