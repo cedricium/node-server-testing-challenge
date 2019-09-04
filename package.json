@@ -2,20 +2,18 @@
   "name": "node-server-testing",
   "version": "1.0.0",
   "description": "Node Server Testing Challenge",
-  "main": "server.js",
+  "main": "index.js",
   "scripts": {
-    "test": "jest --watch"
+    "test": "DB_ENV=testing jest --watch",
+    "start": "DB_ENV=development node index.js"
   },
   "jest": {
     "testEnvironment": "node"
   },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/LambdaSchool/node-server-testing.git"
-  },
+  "repository": "git+https://github.com/LambdaSchool/node-server-testing.git",
   "keywords": [],
-  "author": "",
-  "license": "ISC",
+  "author": "Cedricium <amaya.cedric@gmail.com>",
+  "license": "MIT",
   "bugs": {
     "url": "https://github.com/LambdaSchool/node-server-testing/issues"
   },
@@ -25,6 +23,9 @@
     "supertest": "^4.0.2"
   },
   "dependencies": {
-    "express": "^4.17.1"
+    "cors": "^2.8.5",
+    "express": "^4.17.1",
+    "knex": "^0.19.3",
+    "sqlite3": "^4.1.0"
   }
 }
